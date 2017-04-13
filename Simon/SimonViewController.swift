@@ -78,7 +78,7 @@ class SimonViewController: UIViewController
   func animateButtons()
   {
     var button = [redButton, greenButton, yellowButton, blueButton]
-    UIView.animate(withDuration: 0.5, animations:{
+    UIView.animate(withDuration: 1, animations:{
       //      button[self.buttonNumber]?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
       button[self.buttonNumber]?.alpha = 1
     },  completion: { finished in
@@ -93,10 +93,6 @@ class SimonViewController: UIViewController
     {
       buttonOrderArray.append(buttonNumber)
       answerPressed()
-    }
-    else
-    {
-      buttonOrderArray = [Int]()
     }
   }
   
@@ -123,9 +119,6 @@ class SimonViewController: UIViewController
   
   @IBAction func startTapped(_ sender: UIButton)        //start round func
   {
-    round = 0
-    score = 0
-    self.loadView()
     round += 1
     correctbuttonOrderArray.append(Int(arc4random() % 3))
     var loopCount = 0
