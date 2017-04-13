@@ -11,12 +11,15 @@ import UIKit
 class SimonViewController: UIViewController
 {
   var buttonNumber = Int()
-  var blurEffectNumber = Int()
   var buttonOrderArray = [Int]()
   var correctbuttonOrderArray = [Int]()
-  var round = 0
-  var count = 0
-  var score = 0
+  var round = 0 {
+    didSet { roundLabel.text = "round " + String(round) }
+  }
+  var score = 0 {
+    didSet { scoreLabel.text = "Score: \(score)" }
+  }
+  var index = 0
   
   @IBOutlet weak var redButton: UIButton!
   @IBOutlet weak var greenButton: UIButton!
@@ -25,12 +28,17 @@ class SimonViewController: UIViewController
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
   
+  var buttons = [UIButton]()
+  
   override func viewDidLoad()
   {
-    redButton.alpha = 0.5
-    greenButton.alpha = 0.5
-    yellowButton.alpha = 0.5
-    blueButton.alpha = 0.5
+    buttons = [redButton, greenButton, yellowButton, blueButton]
+    
+    for button in buttons
+    {
+      button.alpha = 0.5
+    }
+    
     super.viewDidLoad()
   }
 
@@ -43,130 +51,154 @@ class SimonViewController: UIViewController
   {
     buttonNumber = 0
     animateButtons()
-    buttonOrderArray.append(buttonNumber)
-    colorPressed()
+    buttonTapped()
   }
   
   @IBAction func greenTapped(_ sender: UIButton)
   {
     buttonNumber = 1
     animateButtons()
-    buttonOrderArray.append(buttonNumber)
-    colorPressed()
+    buttonTapped()
   }
   
   @IBAction func yellowTapped(_ sender: UIButton)
   {
     buttonNumber = 2
     animateButtons()
-    buttonOrderArray.append(buttonNumber)
-    colorPressed()
+    buttonTapped()
   }
   
   @IBAction func blueTapped(_ sender: UIButton)
   {
     buttonNumber = 3
     animateButtons()
-    buttonOrderArray.append(buttonNumber)
-    colorPressed()
-  }
-  
-  @IBAction func startTapped(_ sender: UIButton)        //start round func
-  {
-    round += 1
-    roundLabel.text = "round" + String(round)
-    correctbuttonOrderArray.append(Int(arc4random() % 3))
-    
-    for _ in 0..<correctbuttonOrderArray.count
-    {
-      for number in correctbuttonOrderArray
-      {
-        switch number
-        {
-        case 0:
-          redTapped(redButton)
-        case 1:
-          greenTapped(greenButton)
-        case 2:
-          yellowTapped(yellowButton)
-        case 3:
-          blueTapped(blueButton)
-        default:
-          scoreLabel.text = "Error"
-        }
-      }
-      buttonOrderArray = [Int]()
-    }
+    buttonTapped()
   }
   
   func animateButtons()
   {
     var button = [redButton, greenButton, yellowButton, blueButton]
-    UIView.animate(withDuration: 0.5, animations: {
-      button[self.buttonNumber]?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+    UIView.animate(withDuration: 0.5, animations:{
+      //      button[self.buttonNumber]?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
       button[self.buttonNumber]?.alpha = 1
     },  completion: { finished in
-      button[self.buttonNumber]?.transform = .identity
+      //      button[self.buttonNumber]?.transform = .identity
       button[self.buttonNumber]?.alpha = 0.5
     })
   }
   
-  func colorPressed()
+  func buttonTapped()
   {
-    count += 1
-    if count == round && buttonOrderArray == correctbuttonOrderArray
+    if buttonOrderArray.count == 0 && correctbuttonOrderArray.count == round
     {
-      count = 0
-      nextRound()
-      score += 1
-      scoreLabel.text = "Score:" + String(score)
+      buttonOrderArray.append(buttonNumber)
+      answerPressed()
     }
-    else if buttonOrderArray != correctbuttonOrderArray
+    else
     {
-//      gameOver()
+      buttonOrderArray = [Int]()
     }
   }
   
-  func nextRound()
+  func answerPressed()
   {
-    round += 1
-    roundLabel.text = "round" + String(round)
-    correctbuttonOrderArray.append(Int(arc4random() % 3))
-    
-    for _ in 0..<correctbuttonOrderArray.count
+    if buttonOrderArray.count != 0 && correctbuttonOrderArray.count != 0
     {
-      for number in correctbuttonOrderArray
+      if buttonOrderArray[index] != correctbuttonOrderArray[index]
       {
-        switch number
+        gameOver()
+      }
+      else
+      {
+        index += 1
+        if buttonOrderArray.count == correctbuttonOrderArray.count
         {
-        case 0:
-          redTapped(redButton)
-        case 1:
-          greenTapped(greenButton)
-        case 2:
-          yellowTapped(yellowButton)
-        case 3:
-          blueTapped(blueButton)
-        default:
-          scoreLabel.text = "error"
+          nextRound()
+          index = 0
+          score += 1
         }
       }
-      buttonOrderArray = [Int]()
+    }
+  }
+  
+  @IBAction func startTapped(_ sender: UIButton)        //start round func
+  {
+    round = 0
+    score = 0
+    self.loadView()
+    round += 1
+    correctbuttonOrderArray.append(Int(arc4random() % 3))
+    var loopCount = 0
+    
+    for number in correctbuttonOrderArray
+    {
+      Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: false)
+      { timer in
+        switch number
+        {
+          case 0:
+            self.redTapped(self.redButton)
+          case 1:
+            self.greenTapped(self.greenButton)
+          case 2:
+            self.yellowTapped(self.yellowButton)
+          case 3:
+            self.blueTapped(self.blueButton)
+          default:
+            self.scoreLabel.text = "Error"
+        }
+        timer.invalidate()
+      }
+      loopCount += 1
+    }
+  }
+
+  func nextRound()
+  {
+    if round >= 10
+    {
+      scoreLabel.text = "Congratulations You Win"
+      roundLabel.text = "Congratulations You Win"
+    }
+    else
+    {
+      round += 1
+      correctbuttonOrderArray.append(Int(arc4random() % 3))
+      var loopCount = 0
+      
+      for number in correctbuttonOrderArray
+      {
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: false)
+        { timer in
+          switch number
+          {
+            case 0:
+              self.redTapped(self.redButton)
+            case 1:
+              self.greenTapped(self.greenButton)
+            case 2:
+              self.yellowTapped(self.yellowButton)
+            case 3:
+              self.blueTapped(self.blueButton)
+            default:
+              self.scoreLabel.text = "Error"
+          }
+          timer.invalidate()
+        }
+        loopCount += 1
+      }
     }
   }
   func gameOver()
   {
+    buttonOrderArray = [Int]()
+    correctbuttonOrderArray = [Int]()
+    round = 0
+    index = 0
+    score = 0
+
     scoreLabel.text = "Game Over"
+    roundLabel.text = "Game Over"
   }
 }
-//asdf
-
-
-
-
-
-
-
-
-
 
