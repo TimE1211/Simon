@@ -16,6 +16,7 @@
 		202600991E9E853F000F7E93 /* desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 202600981E9E853F000F7E93 /* desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg */; };
 		2026009B1E9E8547000F7E93 /* red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2026009A1E9E8547000F7E93 /* red.jpg */; };
 		2026009D1E9E856B000F7E93 /* green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2026009C1E9E856B000F7E93 /* green.jpg */; };
+		20751D901EA018B8003C801D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D8F1EA018B8003C801D /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		202600981E9E853F000F7E93 /* desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg"; sourceTree = "<group>"; };
 		2026009A1E9E8547000F7E93 /* red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red.jpg; sourceTree = "<group>"; };
 		2026009C1E9E856B000F7E93 /* green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green.jpg; sourceTree = "<group>"; };
+		20751D8F1EA018B8003C801D /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		202600781E9E8318000F7E93 = {
 			isa = PBXGroup;
 			children = (
+				20751D8F1EA018B8003C801D /* File.swift */,
 				202600831E9E8318000F7E93 /* Simon */,
 				202600821E9E8318000F7E93 /* Products */,
 			);
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				202600871E9E8319000F7E93 /* SimonViewController.swift in Sources */,
+				20751D901EA018B8003C801D /* File.swift in Sources */,
 				202600851E9E8319000F7E93 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +319,7 @@
 				202600951E9E8319000F7E93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -78,11 +78,11 @@ class SimonViewController: UIViewController
   func animateButtons()
   {
     var button = [redButton, greenButton, yellowButton, blueButton]
-    UIView.animate(withDuration: 1, animations:{
-      //      button[self.buttonNumber]?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+    UIView.animate(withDuration: 0.25, animations:{
+      button[self.buttonNumber]?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
       button[self.buttonNumber]?.alpha = 1
     },  completion: { finished in
-      //      button[self.buttonNumber]?.transform = .identity
+      button[self.buttonNumber]?.transform = .identity
       button[self.buttonNumber]?.alpha = 0.5
     })
   }
@@ -92,8 +92,8 @@ class SimonViewController: UIViewController
     if round != 0
     {
       buttonOrderArray.append(buttonNumber)
+      answerPressed()
     }
-    answerPressed()
   }
   
   func answerPressed()
@@ -104,8 +104,6 @@ class SimonViewController: UIViewController
       if buttonOrderArray.count == correctbuttonOrderArray.count
       {
         nextRound()
-        index = 0
-        score += 1
       }
     }
     else if buttonOrderArray[index] != correctbuttonOrderArray[index]
@@ -119,28 +117,25 @@ class SimonViewController: UIViewController
     if round == 0
     {
       round += 1
+      score = 0
       correctbuttonOrderArray.append(Int(arc4random() % 3))
       var loopCount = 0
       
       for number in correctbuttonOrderArray
       {
         buttonNumber = number
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: false)
-        { timer in
-          switch number
-          {
-            case 0:
-              self.animateButtons()
-            case 1:
-              self.animateButtons()
-            case 2:
-              self.animateButtons()
-            case 3:
-              self.animateButtons()
-            default:
-              self.scoreLabel.text = "Error"
-          }
-          timer.invalidate()
+        switch number
+        {
+          case 0:
+            self.animateButtons()
+          case 1:
+            self.animateButtons()
+          case 2:
+            self.animateButtons()
+          case 3:
+            self.animateButtons()
+          default:
+            self.scoreLabel.text = "Error"
         }
         loopCount += 1
       }
@@ -149,6 +144,9 @@ class SimonViewController: UIViewController
 
   func nextRound()
   {
+    index = 0
+    score += 1
+    buttonOrderArray = []
     if round >= 10
     {
       scoreLabel.text = "Congratulations You Win"
@@ -158,13 +156,13 @@ class SimonViewController: UIViewController
     {
       round += 1
       correctbuttonOrderArray.append(Int(arc4random() % 3))
-      var loopCount = 0
-      
-      for number in correctbuttonOrderArray
-      {
-        buttonNumber = number
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: false)
-        { timer in
+      var loopCount = 1
+      Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: true)
+      { timer in
+        for number in self.correctbuttonOrderArray
+        {
+          self.buttonNumber = number
+
           switch number
           {
             case 0:
