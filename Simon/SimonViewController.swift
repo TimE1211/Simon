@@ -89,60 +89,61 @@ class SimonViewController: UIViewController
   
   func buttonTapped()
   {
-    if buttonOrderArray.count == 0 && correctbuttonOrderArray.count == round
+    if round != 0
     {
       buttonOrderArray.append(buttonNumber)
-      answerPressed()
     }
+    answerPressed()
   }
   
   func answerPressed()
   {
-    if buttonOrderArray.count != 0 && correctbuttonOrderArray.count != 0
+    if buttonOrderArray[index] == correctbuttonOrderArray[index]
     {
-      if buttonOrderArray[index] != correctbuttonOrderArray[index]
+      index += 1
+      if buttonOrderArray.count == correctbuttonOrderArray.count
       {
-        gameOver()
+        nextRound()
+        index = 0
+        score += 1
       }
-      else
-      {
-        index += 1
-        if buttonOrderArray.count == correctbuttonOrderArray.count
-        {
-          nextRound()
-          index = 0
-          score += 1
-        }
-      }
+    }
+    else if buttonOrderArray[index] != correctbuttonOrderArray[index]
+    {
+      gameOver()
     }
   }
   
   @IBAction func startTapped(_ sender: UIButton)        //start round func
   {
-    round += 1
-    correctbuttonOrderArray.append(Int(arc4random() % 3))
-    var loopCount = 0
-    
-    for number in correctbuttonOrderArray
+    if round == 0
     {
-      Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: false)
-      { timer in
-        switch number
-        {
-          case 0:
-            self.redTapped(self.redButton)
-          case 1:
-            self.greenTapped(self.greenButton)
-          case 2:
-            self.yellowTapped(self.yellowButton)
-          case 3:
-            self.blueTapped(self.blueButton)
-          default:
-            self.scoreLabel.text = "Error"
+      round += 1
+      correctbuttonOrderArray.append(Int(arc4random() % 3))
+      var loopCount = 0
+      
+      for number in correctbuttonOrderArray
+      {
+        buttonNumber = number
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: false)
+        { timer in
+          switch number
+          {
+            case 0:
+              self.animateButtons()
+            case 1:
+              self.animateButtons()
+            case 2:
+              self.animateButtons()
+            case 3:
+              self.animateButtons()
+            default:
+              self.scoreLabel.text = "Error"
+          }
+          timer.invalidate()
         }
-        timer.invalidate()
+        loopCount += 1
       }
-      loopCount += 1
     }
   }
 
@@ -161,18 +162,19 @@ class SimonViewController: UIViewController
       
       for number in correctbuttonOrderArray
       {
+        buttonNumber = number
         Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: false)
         { timer in
           switch number
           {
             case 0:
-              self.redTapped(self.redButton)
+              self.animateButtons()
             case 1:
-              self.greenTapped(self.greenButton)
+              self.animateButtons()
             case 2:
-              self.yellowTapped(self.yellowButton)
+              self.animateButtons()
             case 3:
-              self.blueTapped(self.blueButton)
+              self.animateButtons()
             default:
               self.scoreLabel.text = "Error"
           }
