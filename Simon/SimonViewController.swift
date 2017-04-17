@@ -92,23 +92,19 @@ class SimonViewController: UIViewController
     if round != 0
     {
       buttonOrderArray.append(buttonNumber)
-      answerPressed()
-    }
-  }
-  
-  func answerPressed()
-  {
-    if buttonOrderArray[index] == correctbuttonOrderArray[index]
-    {
-      index += 1
-      if buttonOrderArray.count == correctbuttonOrderArray.count
+      
+      if buttonOrderArray[index] == correctbuttonOrderArray[index]
       {
-        nextRound()
+        index += 1
+        if buttonOrderArray.count == correctbuttonOrderArray.count
+        {
+          nextRound()
+        }
       }
-    }
-    else if buttonOrderArray[index] != correctbuttonOrderArray[index]
-    {
-      gameOver()
+      else if buttonOrderArray[index] != correctbuttonOrderArray[index]
+      {
+        gameOver()
+      }
     }
   }
   
@@ -123,19 +119,7 @@ class SimonViewController: UIViewController
       for number in correctbuttonOrderArray
       {
         buttonNumber = number
-        switch number
-        {
-          case 0:
-            self.animateButtons()
-          case 1:
-            self.animateButtons()
-          case 2:
-            self.animateButtons()
-          case 3:
-            self.animateButtons()
-          default:
-            self.scoreLabel.text = "Error"
-        }
+        self.animateButtons()
       }
     }
   }
@@ -145,38 +129,23 @@ class SimonViewController: UIViewController
     index = 0
     score += 1
     buttonOrderArray = []
+    loopCount = 1
     if round >= 10
     {
-      scoreLabel.text = "Congratulations You Win"
-      roundLabel.text = "Congratulations You Win"
+      scoreLabel.text = "Congratulations, You Win"
+      roundLabel.text = "Congratulations, You Win"
     }
     else
     {
       round += 1
       correctbuttonOrderArray.append(Int(arc4random() % 3))
-      var loopCount = 1
-      Timer.scheduledTimer(withTimeInterval: TimeInterval(loopCount), repeats: true)
-      { timer in
-        for number in self.correctbuttonOrderArray
-        {
+      for number in correctbuttonOrderArray
+      {
+        Timer.scheduledTimer(withTimeInterval: (loopCount), repeats: false)
+        { timer in
           self.buttonNumber = number
-
-          switch number
-          {
-            case 0:
-              self.animateButtons()
-            case 1:
-              self.animateButtons()
-            case 2:
-              self.animateButtons()
-            case 3:
-              self.animateButtons()
-            default:
-              self.scoreLabel.text = "Error"
-          }
-          timer.invalidate()
+          self.animateButtons()
         }
-        loopCount += 1
       }
     }
   }
