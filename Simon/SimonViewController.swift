@@ -75,7 +75,7 @@ class SimonViewController: UIViewController
     buttonTapped()
   }
   
-  func animateButtons()
+  func animateButtons()   //somehting wrong with animations -> only animates last button
   {
     var button = [redButton, greenButton, yellowButton, blueButton]
     UIView.animate(withDuration: 0.25, animations:{
@@ -119,7 +119,6 @@ class SimonViewController: UIViewController
       round += 1
       score = 0
       correctbuttonOrderArray.append(Int(arc4random() % 3))
-      var loopCount = 0
       
       for number in correctbuttonOrderArray
       {
@@ -137,7 +136,6 @@ class SimonViewController: UIViewController
           default:
             self.scoreLabel.text = "Error"
         }
-        loopCount += 1
       }
     }
   }
