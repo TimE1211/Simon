@@ -94,7 +94,7 @@
                                     <color key="titleShadowColor" red="0.91766197640000002" green="0.049914741429999999" blue="0.049104985839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dt6-Ea-bbF" kind="show" id="RRu-Kl-Gla"/>
+                                    <segue destination="dt6-Ea-bbF" kind="show" identifier="HighscoreSegue" id="RRu-Kl-Gla"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -155,6 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighscoreTableViewCell" id="0mU-TU-Klp" customClass="HighscoreTableViewCell" customModule="Simon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -166,13 +167,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9X-JJ-wZA">
                                             <rect key="frame" x="28" y="11.5" width="50.5" height="21"/>
                                             <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6G-Vb-u93">
                                             <rect key="frame" x="278.5" y="11.5" width="58" height="21"/>
                                             <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -183,8 +184,10 @@
                                         <constraint firstItem="F9X-JJ-wZA" firstAttribute="centerY" secondItem="GQP-N5-ZJZ" secondAttribute="centerY" id="q5j-tv-9r9"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="scoreLabel" destination="GQP-N5-ZJZ" id="GoE-e1-Rgr"/>
+                                    <outlet property="scoreLabel" destination="o6G-Vb-u93" id="GbR-z5-sF3"/>
                                     <outlet property="usernameLabel" destination="F9X-JJ-wZA" id="Hzv-Il-wof"/>
                                 </connections>
                             </tableViewCell>
@@ -232,7 +235,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="EW6-kJ-iCf" firstAttribute="centerX" secondItem="mZo-Id-Dxa" secondAttribute="centerX" id="FPF-O2-O0x"/>
                             <constraint firstItem="EW6-kJ-iCf" firstAttribute="top" secondItem="mZo-Id-Dxa" secondAttribute="bottom" constant="50" id="MgR-x8-LCj"/>

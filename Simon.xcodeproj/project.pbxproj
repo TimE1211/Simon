@@ -20,6 +20,7 @@
 		20751D9A1EA44B65003C801D /* HighscoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D991EA44B65003C801D /* HighscoreTableViewController.swift */; };
 		20751D9C1EA44EFC003C801D /* HighscoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D9B1EA44EFC003C801D /* HighscoreTableViewCell.swift */; };
 		20751D9E1EA4511D003C801D /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D9D1EA4511D003C801D /* Highscore.swift */; };
+		20751DA01EA455E7003C801D /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D9F1EA455E7003C801D /* APIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		20751D991EA44B65003C801D /* HighscoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighscoreTableViewController.swift; path = ../HighscoreTableViewController.swift; sourceTree = "<group>"; };
 		20751D9B1EA44EFC003C801D /* HighscoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreTableViewCell.swift; sourceTree = "<group>"; };
 		20751D9D1EA4511D003C801D /* Highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
+		20751D9F1EA455E7003C801D /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIController.swift; path = ../APIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				20751D991EA44B65003C801D /* HighscoreTableViewController.swift */,
 				20751D9B1EA44EFC003C801D /* HighscoreTableViewCell.swift */,
 				20751D9D1EA4511D003C801D /* Highscore.swift */,
+				20751D9F1EA455E7003C801D /* APIController.swift */,
 				202600881E9E8319000F7E93 /* Main.storyboard */,
 				2026008B1E9E8319000F7E93 /* Assets.xcassets */,
 				2026008D1E9E8319000F7E93 /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20751DA01EA455E7003C801D /* APIController.swift in Sources */,
 				20751D981EA44B52003C801D /* LoginViewController.swift in Sources */,
 				202600871E9E8319000F7E93 /* SimonViewController.swift in Sources */,
 				202600851E9E8319000F7E93 /* AppDelegate.swift in Sources */,

@@ -11,5 +11,5 @@ import UIKit
 class HighscoreTableViewCell: UITableViewCell
 {
   @IBOutlet weak var usernameLabel: UILabel!
-  @IBOutlet weak var scoreLabel: UIView!
+  @IBOutlet weak var scoreLabel: UILabel!
 }
