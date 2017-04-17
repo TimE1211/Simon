@@ -43,7 +43,8 @@ class HighscoreTableViewController: UITableViewController, APIControllerProtocol
     let cell = tableView.dequeueReusableCell(withIdentifier: "HighscoreTableViewCell", for: indexPath) as! HighscoreTableViewCell
     
     let highscore = self.highscores[indexPath.row]
-    reloadCell(cell: cell , with: highscore)
+    cell.usernameLabel.text = highscore.username
+    cell.scoreLabel.text = String(highscore.score)
   
     return cell
   }
@@ -57,11 +58,5 @@ class HighscoreTableViewController: UITableViewController, APIControllerProtocol
     }
     
     tableView.reloadData()
-  }
-  
-  func reloadCell(cell: HighscoreTableViewCell, with highscore: Highscore)
-  {
-    cell.usernameLabel.text = highscore.username
-    cell.scoreLabel.text = String(highscore.score)
   }
 }

@@ -129,23 +129,24 @@ class SimonViewController: UIViewController
     index = 0
     score += 1
     buttonOrderArray = []
-    loopCount = 1
     if round >= 10
     {
-      scoreLabel.text = "Congratulations, You Win"
-      roundLabel.text = "Congratulations, You Win"
+      scoreLabel.text = "You Win!"
+      roundLabel.text = "You Win!"
     }
     else
     {
       round += 1
       correctbuttonOrderArray.append(Int(arc4random() % 3))
+      var loopCount: TimeInterval = 1
       for number in correctbuttonOrderArray
       {
-        Timer.scheduledTimer(withTimeInterval: (loopCount), repeats: false)
+        Timer.scheduledTimer(withTimeInterval: loopCount, repeats: false)
         { timer in
           self.buttonNumber = number
           self.animateButtons()
         }
+        loopCount += 1
       }
     }
   }
