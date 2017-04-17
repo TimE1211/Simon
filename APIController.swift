@@ -10,7 +10,7 @@ import Foundation
 
 protocol APIControllerProtocol
 {
-  func apiControllerDidSend(results: [[String: Any]])
+  func apiControllerDidReceive(results: [[String: Any]])
 }
 
 class APIController
@@ -39,7 +39,7 @@ class APIController
       {
         DispatchQueue.main.async
           {
-            self.delegate.apiControllerDidSend(results: highscoreDictionary)
+            self.delegate.apiControllerDidReceive(results: highscoreDictionary)
         }
       }
     })
@@ -65,6 +65,41 @@ class APIController
       print(error)
       return nil
     }
+  }
+  static func postScoreToLeaderboard(score: Int, username: String)
+  {
+    let leaderboardAPIUrlString = "http://67.205.186.213/api/v1/save"
+    var request = URLRequest(url: URL(string: leaderboardAPIUrlString)!)
+    request.httpMethod = "POST"
+    let paramString = "displayname=\(username)&username=TKH&score=\(score)"
+    request.httpBody = paramString.data(using: .utf8)
+    
+    URLSession.shared.dataTask(with: request) {
+      data, response, error in
+      if let error = error
+      {
+        print(error.localizedDescription)
+      }
+      else
+      {
+        do
+        {
+          if let errorDictionary = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
+          {
+            if let error = errorDictionary["error"] as? String
+            {
+              if error != "Score record saved."
+              {
+                print("Score was not saved: \(error)")
+              }
+            }
+          }
+        } catch
+        {
+          print(error.localizedDescription)
+        }
+      }
+    }.resume()
   }
 }
 

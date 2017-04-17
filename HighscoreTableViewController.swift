@@ -49,7 +49,7 @@ class HighscoreTableViewController: UITableViewController, APIControllerProtocol
     return cell
   }
   
-  func apiControllerDidSend(results: [[String: Any]])
+  func apiControllerDidReceive(results: [[String: Any]])
   {
     for result in results
     {
