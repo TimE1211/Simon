@@ -16,8 +16,6 @@
 		202600991E9E853F000F7E93 /* desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 202600981E9E853F000F7E93 /* desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg */; };
 		2026009B1E9E8547000F7E93 /* red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2026009A1E9E8547000F7E93 /* red.jpg */; };
 		2026009D1E9E856B000F7E93 /* green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2026009C1E9E856B000F7E93 /* green.jpg */; };
-		20751D921EA4412F003C801D /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D911EA4412F003C801D /* Score.swift */; };
-		20751D941EA4426B003C801D /* Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D931EA4426B003C801D /* Handlers.swift */; };
 		20751D981EA44B52003C801D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D971EA44B52003C801D /* LoginViewController.swift */; };
 		20751D9A1EA44B65003C801D /* HighscoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D991EA44B65003C801D /* HighscoreTableViewController.swift */; };
 		20751D9C1EA44EFC003C801D /* HighscoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20751D9B1EA44EFC003C801D /* HighscoreTableViewCell.swift */; };
@@ -36,8 +34,6 @@
 		202600981E9E853F000F7E93 /* desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "desktop-wallpaper-abstract-background-image-pixel-wave-textures-wallpapers-yellow-large.jpg"; sourceTree = "<group>"; };
 		2026009A1E9E8547000F7E93 /* red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red.jpg; sourceTree = "<group>"; };
 		2026009C1E9E856B000F7E93 /* green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green.jpg; sourceTree = "<group>"; };
-		20751D911EA4412F003C801D /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		20751D931EA4426B003C801D /* Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handlers.swift; sourceTree = "<group>"; };
 		20751D971EA44B52003C801D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		20751D991EA44B65003C801D /* HighscoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighscoreTableViewController.swift; path = ../HighscoreTableViewController.swift; sourceTree = "<group>"; };
 		20751D9B1EA44EFC003C801D /* HighscoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,8 +76,6 @@
 				20751D991EA44B65003C801D /* HighscoreTableViewController.swift */,
 				20751D9B1EA44EFC003C801D /* HighscoreTableViewCell.swift */,
 				20751D9D1EA4511D003C801D /* Highscore.swift */,
-				20751D911EA4412F003C801D /* Score.swift */,
-				20751D931EA4426B003C801D /* Handlers.swift */,
 				202600881E9E8319000F7E93 /* Main.storyboard */,
 				2026008B1E9E8319000F7E93 /* Assets.xcassets */,
 				2026008D1E9E8319000F7E93 /* LaunchScreen.storyboard */,
@@ -173,8 +167,6 @@
 			files = (
 				20751D981EA44B52003C801D /* LoginViewController.swift in Sources */,
 				202600871E9E8319000F7E93 /* SimonViewController.swift in Sources */,
-				20751D941EA4426B003C801D /* Handlers.swift in Sources */,
-				20751D921EA4412F003C801D /* Score.swift in Sources */,
 				202600851E9E8319000F7E93 /* AppDelegate.swift in Sources */,
 				20751D9C1EA44EFC003C801D /* HighscoreTableViewCell.swift in Sources */,
 				20751D9E1EA4511D003C801D /* Highscore.swift in Sources */,
