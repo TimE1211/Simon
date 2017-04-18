@@ -25,13 +25,11 @@ class LoginViewController: UIViewController
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
     let username = usernameTextField.text
-    if segue.identifier == "WeeklyForecastSegue"
+    if segue.identifier == "LoginSegue"
     {
       let simonVC = segue.destination as! SimonViewController
-      if usernameTextField.text != ""
-      {
-        simonVC.username = username
-      }
+      simonVC.username = username!
     }
   }
+  
 }

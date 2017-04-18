@@ -19,6 +19,12 @@ class HighscoreTableViewController: UITableViewController, APIControllerProtocol
     apiController = APIController(delegate: self)
     super.viewDidLoad()
   }
+  
+  override func viewWillAppear(_ animated: Bool)
+  {
+    super.viewWillAppear(animated)
+    apiController.searchHighscore()  //acts on behalf of APIController class -> is an object of that class, working in table view controller
+  }
 
   override func didReceiveMemoryWarning()
   {
@@ -45,8 +51,9 @@ class HighscoreTableViewController: UITableViewController, APIControllerProtocol
     let highscore = self.highscores[indexPath.row]
     cell.usernameLabel.text = highscore.username
     cell.scoreLabel.text = String(highscore.score)
-  
+    
     return cell
+
   }
   
   func apiControllerDidReceive(results: [[String: Any]])

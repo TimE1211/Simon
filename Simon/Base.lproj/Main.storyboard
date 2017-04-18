@@ -161,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0mU-TU-Klp" id="GQP-N5-ZJZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9X-JJ-wZA">
@@ -205,7 +205,6 @@
         <!--Login View Controller-->
         <scene sceneID="Mhi-Ti-nc7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYo-6U-FA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="mD3-Sc-LJ9" customClass="LoginViewController" customModule="Simon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q6W-f1-812"/>
@@ -228,7 +227,7 @@
                                     <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="voK-Vu-oqi"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="LoginSegue" id="voK-Vu-oqi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -245,6 +244,7 @@
                         <outlet property="usernameTextField" destination="mZo-Id-Dxa" id="cuc-ax-rHz"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYo-6U-FA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="367" y="139"/>
         </scene>

@@ -15,7 +15,7 @@ class Highscore
   
   init(highscoreDictionary: [String: Any])
   {
-    username = highscoreDictionary["username"] as? String ?? ""
+    username = highscoreDictionary["displayname"] as? String ?? ""
     score = highscoreDictionary["score"] as! Double
   }
 

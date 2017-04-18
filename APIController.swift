@@ -50,7 +50,7 @@ class APIController
   {
     do
     {
-      let json = try JSONSerialization.jsonObject(with: data, options: [])
+      let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
       if let dictionary = json as? [String: Any]
       {
         return dictionary
@@ -66,6 +66,7 @@ class APIController
       return nil
     }
   }
+  
   static func postScoreToLeaderboard(score: Int, username: String)
   {
     let leaderboardAPIUrlString = "http://67.205.186.213/api/v1/save"

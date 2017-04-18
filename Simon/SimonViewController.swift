@@ -20,7 +20,7 @@ class SimonViewController: UIViewController
     didSet { scoreLabel.text = "Score: \(score)" }
   }
   var index = 0
-  var username: String!
+  var username = String()
   
   @IBOutlet weak var redButton: UIButton!
   @IBOutlet weak var greenButton: UIButton!
@@ -156,13 +156,12 @@ class SimonViewController: UIViewController
   {
     buttonOrderArray = [Int]()
     correctbuttonOrderArray = [Int]()
-    round = 0
-    index = 0
-    score = 0
-
     scoreLabel.text = "Game Over"
     roundLabel.text = "Game Over"
     APIController.postScoreToLeaderboard(score: score, username: username)
+    round = 0
+    index = 0
+    score = 0
   }
 }
 
